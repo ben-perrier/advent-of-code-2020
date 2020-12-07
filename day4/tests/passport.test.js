@@ -7,7 +7,7 @@ describe('passport', () => {
       const validPassportInput  = ['ecl:gry pid:860033327 eyr:2020', 'hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm']
       const passportObj = passport.format(validPassportInput)
       expect(passportObj).toMatchObject({
-        ecl:'gry', pid: 860033327, eyr:2020, hcl:'#fffffd', byr:1937, iyr:2017, cid:'147', hgt:'183cm'
+        ecl:'gry', pid: '860033327', eyr:2020, hcl:'#fffffd', byr:1937, iyr:2017, cid:'147', hgt:'183cm'
       })
     })
   })
@@ -108,7 +108,7 @@ describe('validate', () => {
     expect(passport.validate({ ...validPassport, cid: '0123456789' })).toBe(true)
   })
 
-  it.only('should validate passport info', () => {
+  it('should validate passport info', () => {
     const set = [
       ['pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980','hcl:#623a2f'],
       ['eyr:2029 ecl:blu cid:129 byr:1989','iyr:2014 pid:896056539 hcl:#a97842 hgt:165cm'],

@@ -1,4 +1,4 @@
-const seat = require('../seat')
+const seat = require('./seat')
 
 describe('seat', () => {
   describe('getRow', () => {

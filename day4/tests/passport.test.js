@@ -116,10 +116,7 @@ describe('validate', () => {
     ]
     const fmt = set.map(itm => passport.format(itm))
     const val = fmt.map(itm => passport.validate(itm))
-    console.log(fmt)
     expect(val[0]).toBe(true)
-    console.log('afta')
-
     expect(val[1]).toBe(true)
     expect(val[2]).toBe(true)
   })

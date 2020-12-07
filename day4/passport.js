@@ -59,7 +59,6 @@ module.exports = {
       ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'].includes(ecl),
       pid && /^[0-9]{9}$/.test(String(pid))
     ]
-    console.log('allValid',allValid)
     return allValid.every(itm => !!itm)
   }
 }

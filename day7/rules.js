@@ -15,7 +15,7 @@ const rules = {
     const contain = this.getRestrictions(rest)
     return { 
       id: id.match(/(.+ bag)/)[0],
-      color: `${adjective}${color}`,
+      color: `${adjective} ${color}`,
       contain
     }
   },

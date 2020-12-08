@@ -19,9 +19,8 @@ describe('rules', () => {
       const input = 'wavy green bags contain 5 pale coral bags, 1 dull blue bag, 4 drab blue bags, 1 striped tan bag.'
       expect(rules.getRule(input)).toEqual({
         id: 'wavy green bag',
-        adjective: 'wavy',
-        color: 'green',
-        mayContain: [{
+        color: 'wavy green',
+        contain: [{
           qty: 5,
           id: 'pale coral bag'
         }, {

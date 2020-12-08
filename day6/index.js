@@ -1,5 +1,6 @@
 const declarations = require('./customs-declarations-processor')
 const { readFile } = require('../helpers/input-file-reader')
+
 const input = readFile(`${__dirname}/input.txt`)
 
 const counts = declarations.countPositivelyAnsweredByGroup(input)

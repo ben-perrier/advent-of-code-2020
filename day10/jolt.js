@@ -27,7 +27,6 @@ const jolt = {
         list = this.buildUpListVariations(list, orderedAdapters)
         return acc.concat(list)
       }, [])
-      console.log({ lists })
       return buildLists(lists)
     }
 

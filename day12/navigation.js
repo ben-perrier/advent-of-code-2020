@@ -1,7 +1,7 @@
 class Ship {
   
-  constructor (direction) {
-    this.direction = direction
+  constructor (orientation) {
+    this.orientation = orientation
     this.x = 0
     this.y = 0
   }
@@ -15,7 +15,7 @@ class Ship {
     const [_, letter, number] = instruction.match(/([A-Z])([0-9]+)/)
     if (['E', 'W', 'S', 'N', 'F'].includes(letter)) return this.moveShip(letter, +number)
     if (['R', 'L'].includes(letter)) return this.turnShip(letter, +number)
-    throw Error(`direction ${direction} cannot be processed`)
+    throw Error(`instruction ${letter} cannot be processed`)
   }
 
   /**
@@ -25,7 +25,7 @@ class Ship {
    */
   turnShip (side, degrees) {
     if (!side) throw Error('need side to turn')
-    this.direction = (this.direction + (side === 'L' ? (360 - degrees) : degrees )) % 360
+    this.orientation = (this.orientation + (side === 'L' ? (360 - degrees) : degrees )) % 360
     return this
   }
 
@@ -35,7 +35,7 @@ class Ship {
   moveShip (direction, distance) {
     if (['E', 'W', 'S', 'N'].includes(direction)) return this.moveShipWithCardinals (direction, distance)
     if (['F'].includes(direction)) return this.moveForward (distance)
-    throw Error(`direction ${direction} cannot be processed`)
+    throw Error(`instruction ${direction} cannot be processed`)
   }
 
   /**
@@ -54,7 +54,7 @@ class Ship {
    */
   moveForward (distance) {
     const degreeToCardinal = { 0: 'N', 90: 'E', 180: 'S', 270: 'W'}
-    const cardinal = degreeToCardinal[this.direction]
+    const cardinal = degreeToCardinal[this.orientation]
     return this.moveShipWithCardinals(cardinal, distance)
   }
 

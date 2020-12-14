@@ -30,7 +30,7 @@ class Ship {
   }
 
   /**
-   * Moves ship by distance
+   * Processes move ship instructions
    */
   moveShip (direction, distance) {
     if (['E', 'W', 'S', 'N'].includes(direction)) return this.moveShipWithCardinals (direction, distance)
@@ -39,9 +39,9 @@ class Ship {
   }
 
   /**
-   * 
-   * @param {*} cardinal:
-   * @param {*} distance:
+   * Moves the ship forward by the desired distance
+   * @param {*} cardinal: N, E, S or W
+   * @param {*} distance: desired distance
    */
   moveShipWithCardinals (cardinal, distance) {
     this.x += cardinal === 'E' ? distance : cardinal === 'W' ? -distance : 0
@@ -49,6 +49,9 @@ class Ship {
     return this
   }
 
+  /**
+   * Moves the ship forward by the desired distance
+   */
   moveForward (distance) {
     const degreeToCardinal = { 0: 'N', 90: 'E', 180: 'S', 270: 'W'}
     const cardinal = degreeToCardinal[this.direction]

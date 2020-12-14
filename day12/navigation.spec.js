@@ -15,13 +15,13 @@ describe('Ship', () => {
     })
   })
 
-  describe('moveShipWithCardinals', () => {
+  describe('moveShipTowardsCardinal', () => {
     it('sould move ship with cardinals accordingly', () => {
       const ship = new Ship(0)
-      expect(ship.moveShipWithCardinals('N', 10)).toMatchObject({ x: 0, y: 10})
-      expect(ship.moveShipWithCardinals('S', 20)).toMatchObject({ x: 0, y: -10})
-      expect(ship.moveShipWithCardinals('E', 10)).toMatchObject({ x: 10, y: -10})
-      expect(ship.moveShipWithCardinals('W', 20)).toMatchObject({ x: -10, y: -10})
+      expect(ship.moveShipTowardsCardinal('N', 10)).toMatchObject({ x: 0, y: 10})
+      expect(ship.moveShipTowardsCardinal('S', 20)).toMatchObject({ x: 0, y: -10})
+      expect(ship.moveShipTowardsCardinal('E', 10)).toMatchObject({ x: 10, y: -10})
+      expect(ship.moveShipTowardsCardinal('W', 20)).toMatchObject({ x: -10, y: -10})
     })
   })
 

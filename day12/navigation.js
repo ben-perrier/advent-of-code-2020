@@ -33,7 +33,7 @@ class Ship {
    * Processes move ship instructions
    */
   moveShip (direction, distance) {
-    if (['E', 'W', 'S', 'N'].includes(direction)) return this.moveShipWithCardinals (direction, distance)
+    if (['E', 'W', 'S', 'N'].includes(direction)) return this.moveShipTowardsCardinal (direction, distance)
     if (['F'].includes(direction)) return this.moveForward (distance)
     throw Error(`instruction ${direction} cannot be processed`)
   }
@@ -43,7 +43,7 @@ class Ship {
    * @param {*} cardinal: N, E, S or W
    * @param {*} distance: desired distance
    */
-  moveShipWithCardinals (cardinal, distance) {
+  moveShipTowardsCardinal (cardinal, distance) {
     this.x += cardinal === 'E' ? distance : cardinal === 'W' ? -distance : 0
     this.y += cardinal === 'N' ? distance : cardinal === 'S' ? -distance : 0
     return this
@@ -55,7 +55,7 @@ class Ship {
   moveForward (distance) {
     const degreeToCardinal = { 0: 'N', 90: 'E', 180: 'S', 270: 'W'}
     const cardinal = degreeToCardinal[this.orientation]
-    return this.moveShipWithCardinals(cardinal, distance)
+    return this.moveShipTowardsCardinal(cardinal, distance)
   }
 
   getManhattanDistance () {
@@ -63,5 +63,19 @@ class Ship {
   }
 
 }
+
+class Part2Ship extends Ship {
+  constructor (x, y) {
+    super(90)
+    this.x = 0
+    this.y = 0
+    this.wayPoint = {
+      x, 
+      y
+    }
+  }
+
+}
+
 
 module.exports = { Ship }
